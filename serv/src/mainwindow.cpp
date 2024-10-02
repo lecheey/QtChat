@@ -45,7 +45,7 @@ MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr)
 {
     StartScreen s(dbPtr);
     auto result = s.exec();
-    if(result = QDialog::Rejected){
+    if(result == QDialog::Rejected){
         return nullptr;
     }
     return new MainWindow(dbPtr);

@@ -113,6 +113,9 @@ messages</string>
     </item>
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
       <widget class="UserListWidget" name="userWidget"/>
       <widget class="MsgListWidget" name="msgWidget"/>
      </widget>
