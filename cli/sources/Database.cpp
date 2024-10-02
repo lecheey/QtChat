@@ -58,19 +58,19 @@ int Database::checkPassword(string username, string password)
 	return result;
 }
 
-void Database::addChatMessage(string sender, string text)
+void Database::addChatMessage(string sender, string text, string time)
 {
-	_messages.push_back(Message(sender, text));
+	_messages.push_back(Message(sender, text, time));
 }
 
-bool Database::addPrivateMessage(string sender, string target, string message)
+bool Database::addPrivateMessage(string sender, string target, string message, string time)
 {
 	int targetUser = searchUserByName(target);
 	if (targetUser < 0)
 	{
 		return false;
 	}
-  _messages.push_back(Message(sender, targetUser, message));
+  _messages.push_back(Message(sender, targetUser, message, time));
 	return true;
 }
 
@@ -81,7 +81,7 @@ vector<string> Database::getChatMessages()
 	{
 		if (m.getDest() == -1)
 		{
-			strings.push_back("<" + m.getSender() + ">: " + m.getText());
+			strings.push_back(m.getTime() + "<" + m.getSender() + ">: " + m.getText());
 		}
 	}
 	return strings;

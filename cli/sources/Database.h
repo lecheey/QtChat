@@ -17,8 +17,8 @@ public:
 	Database();
 	int addUser(string username, string password);
 	int checkPassword(string username, string password);
-	void addChatMessage(string sender, string);
-	bool addPrivateMessage(string sender, string target, string message);
+    void addChatMessage(string sender, string, string time);
+    bool addPrivateMessage(string sender, string target, string message, string time);
 	vector<string> getChatMessages();//показать все сообщения
   vector<Message> getPrivateMessage(int userID = -1);//показать личные сообщения пользователю username
 };

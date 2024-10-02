@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include "CommandLineInterface.h"
+//#include "CommandLineInterface.h"
 #include "mainwindow.h"
 #include <QApplication>
 #include <QTranslator>

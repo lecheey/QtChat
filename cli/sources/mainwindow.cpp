@@ -1,15 +1,20 @@
 #include "mainwindow.h"
 #include "startscreen.h"
 #include "ui_mainwindow.h"
+
 #include <QDialog>
 #include <QVBoxLayout>
 #include <QDialogButtonBox>
 #include <QListWidget>
 #include <QTimer>
+#include <QDateTime>
 
 int MainWindow::kInstanceCount = 0;
 
-MainWindow::MainWindow(std::shared_ptr<Database> dbPtr, QWidget *parent) :
+MainWindow::MainWindow(int userId,
+                       QString userName,
+                       std::shared_ptr<Database> dbPtr,
+                       QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     m_userId(userId),
@@ -17,10 +22,14 @@ MainWindow::MainWindow(std::shared_ptr<Database> dbPtr, QWidget *parent) :
 {
     ui->setupUi(this);
     kInstanceCount++;
+
+    ui->label->setText(m_userName);
+
     if(dbPtr)
         m_dbPtr = dbPtr;
     else
         m_dbPtr = make_shared<Database>();
+
     auto timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateChats);
     timer->start(10);
@@ -56,7 +65,8 @@ void MainWindow::on_messageLineEdit_returnPressed()
 void MainWindow::on_sendMessageButton_clicked()
 {
     m_dbPtr->addChatMessage(m_userName.toStdString(),
-                            ui->messageLineEdit->text().toStdString());
+                            ui->messageLineEdit->text().toStdString(),
+                            QDateTime::currentDateTime().time().toString().toStdString());
 }
 
 
@@ -86,7 +96,8 @@ void MainWindow::on_privateMessageSendButton_clicked()
     if(result == QDialog::Accepted && userListWgt->currentItem()){
         m_dbPtr->addPrivateMessage(m_userName.toStdString(),
                                    userListWgt->currentItem()->text().toStdString(),
-                                   ui->messageLineEdit->text().toStdString());
+                                   ui->messageLineEdit->text().toStdString(),
+                                   QDateTime::currentDateTime().time().toString().toStdString());
     }
 }
 
@@ -125,15 +136,18 @@ void MainWindow::updateChats()
         QString prefix;
         if(m_userName == QString::fromStdString(msg.getSender()) &&
            m_userId == msg.getDest()){
-            prefix = tr("self message") + ": ";
+            prefix = QString::fromStdString(msg.getTime()) +
+                     tr(" self message") + ": ";
         }
         else if(m_userName == QString::fromStdString(msg.getSender())){
-            prefix = tr("message to") +
+            prefix = QString::fromStdString(msg.getTime()) +
+                        tr(" message to") +
                      QString(" <%1>: ").
                         arg(QString::fromStdString(m_dbPtr->getUserName(msg.getDest())));
         }
         else{
-            prefix = "<" + QString::fromStdString(msg.getSender()) +
+            prefix = QString::fromStdString(msg.getTime()) +
+                    " <" + QString::fromStdString(msg.getSender()) +
                      "> " + tr("say to you") + ": ";
         }
         chat.append(prefix + QString::fromStdString(msg.getText()) + "\n");
