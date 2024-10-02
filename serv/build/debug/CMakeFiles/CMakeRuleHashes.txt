@@ -1,0 +1,9 @@
+# Hashes of file build rules.
+acd2dea9c86800fe783ac432c9c162c4 /home/lecheey/QtProjects/ServerApp2/translations/my_ru.ts
+005152feb9c4c9e0c5d0b32ed2945ed2 CMakeFiles/Server_autogen
+6fbeab2bc23b9b0f5e2f4413f665985c CMakeFiles/translate_my_ru
+585d9b29dafea5c1cadfbe7a69a21132 my_ru.qm
+a18f551ea017cc7e2194ad9edcca9d7a ui_mainwindow.h
+c2d6382d0a5fd4a9b1a94ba645f23f03 ui_msglistwidget.h
+e8ee69c261c1ffdf0ca224e44397cf07 ui_startscreen.h
+db74420250a87b154d280bd3597ec507 ui_userlistwidget.h

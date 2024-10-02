@@ -1,0 +1,6 @@
+/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build/debug/CMakeFiles/translations.dir
+/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build/debug/CMakeFiles/translate_my_ru.dir
+/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build/debug/CMakeFiles/Chat.dir
+/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build/debug/CMakeFiles/edit_cache.dir
+/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build/debug/CMakeFiles/rebuild_cache.dir
+/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build/debug/CMakeFiles/Chat_autogen.dir
