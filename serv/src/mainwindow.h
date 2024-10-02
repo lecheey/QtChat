@@ -14,7 +14,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(std::shared_ptr<Database> dbPtr = nullptr,
+    explicit MainWindow(int userId,
+                        QString userName,
+                        std::shared_ptr<Database> dbPtr = nullptr,
                         QWidget *parent = nullptr);
     ~MainWindow();
 

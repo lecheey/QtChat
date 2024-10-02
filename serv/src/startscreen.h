@@ -21,6 +21,8 @@ public:
     int userId() const;
     QString userName() const;
 
+    std::shared_ptr<Database> getDatabase() const;
+
 private slots:
     void on_buttonBox_accepted();
     void on_buttonBox_rejected();

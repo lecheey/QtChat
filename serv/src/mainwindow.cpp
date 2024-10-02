@@ -8,8 +8,15 @@
 #include <QMessageBox>
 #include <QDateTime>
 
-MainWindow::MainWindow(std::shared_ptr<Database> dbPtr, QWidget *parent) :
-                        QMainWindow(parent), ui(new Ui::MainWindow){
+MainWindow::MainWindow(int userId,
+                       QString userName,
+                       std::shared_ptr<Database> dbPtr,
+                       QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow),
+    m_userId(userId),
+    m_userName(userName){
+
     ui->setupUi(this);
 
     if(dbPtr)
@@ -39,6 +46,7 @@ MainWindow::MainWindow(std::shared_ptr<Database> dbPtr, QWidget *parent) :
 
 MainWindow::~MainWindow(){
     delete ui;
+    qApp->exit(0);
 }
 
 MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr)
@@ -48,7 +56,9 @@ MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr)
     if(result == QDialog::Rejected){
         return nullptr;
     }
-    return new MainWindow(dbPtr);
+    auto w = new MainWindow(s.userId(), s.userName(), s.getDatabase());
+    w->setAttribute(Qt::WA_DeleteOnClose);
+    return w;
 }
 
 
