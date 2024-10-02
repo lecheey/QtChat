@@ -1,6 +1,0 @@
-/home/lecheey/QtProjects/ServerApp2/build/release/CMakeFiles/translations.dir
-/home/lecheey/QtProjects/ServerApp2/build/release/CMakeFiles/translate_my_ru.dir
-/home/lecheey/QtProjects/ServerApp2/build/release/CMakeFiles/Server.dir
-/home/lecheey/QtProjects/ServerApp2/build/release/CMakeFiles/edit_cache.dir
-/home/lecheey/QtProjects/ServerApp2/build/release/CMakeFiles/rebuild_cache.dir
-/home/lecheey/QtProjects/ServerApp2/build/release/CMakeFiles/Server_autogen.dir

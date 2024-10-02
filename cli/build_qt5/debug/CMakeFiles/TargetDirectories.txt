@@ -1,6 +1,0 @@
-/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build_qt5/debug/CMakeFiles/translations.dir
-/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build_qt5/debug/CMakeFiles/translate_my_ru.dir
-/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build_qt5/debug/CMakeFiles/Chat.dir
-/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build_qt5/debug/CMakeFiles/edit_cache.dir
-/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build_qt5/debug/CMakeFiles/rebuild_cache.dir
-/home/lecheey/scripts/CPLUS-UI-ChatCPPTest/build_qt5/debug/CMakeFiles/Chat_autogen.dir

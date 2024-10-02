@@ -1,9 +1,0 @@
-# Hashes of file build rules.
-d3346f29ea4fbabe717f5b1fba345f3c /home/lecheey/scripts/CPLUS-UI-ChatCPPTest/translations/my_ru.ts
-1fa2d730c359d5abaa5300a623b283b5 CMakeFiles/Chat_autogen
-09c939a069a76f2262053329e9daf86a CMakeFiles/translate_my_ru
-58e0f376c52844f73f29744b407888c3 my_ru.qm
-95dbd4cfa6bba57119e63303e19bb689 ui_loginform.h
-9297c96e969f98c243375099108b265f ui_mainwindow.h
-4c0fe97b28bd2de662ae64b6a0ed1b08 ui_registrationform.h
-6d3024e9786a7bd23a8f814b7a5d4cc7 ui_startscreen.h
