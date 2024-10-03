@@ -9,6 +9,7 @@ class Database
 {
 	vector<User> _users;
 	vector<Message> _messages;
+    vector<Message> _logs;
 	unordered_map<string, int> _usersMapByName;
 
 public:
@@ -20,9 +21,11 @@ public:
 	int addUser(string username, string password);
 	int checkPassword(string username, string password);
     void addChatMessage(string sender, string, string time);
+    void addLogMessage(string sender, string, string time);
     bool addPrivateMessage(string sender, string target, string message, string time);
 	vector<string> getChatMessages();//показать все сообщения
   vector<Message> getPrivateMessage(int userID = -1);//показать личные сообщения пользователю username
+    vector<string> getLogMessages();
     void loginUser(string username);
     void logoutUser(string username);
     void banUser(string username);

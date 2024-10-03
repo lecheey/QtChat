@@ -1,6 +1,7 @@
 #include "startscreen.h"
 #include "ui_startscreen.h"
 #include <QMessageBox>
+#include <QDateTime>
 
 StartScreen::StartScreen(std::shared_ptr<Database> dbPtr,
                          QWidget *parent) :
@@ -15,6 +16,8 @@ StartScreen::StartScreen(std::shared_ptr<Database> dbPtr,
         m_dbPtr = make_shared<Database>();
 
     m_dbPtr->addUser("admin", "admin");
+    m_dbPtr->addLogMessage("system", "server is starting", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
+
 }
 
 StartScreen::~StartScreen()
@@ -30,7 +33,8 @@ void StartScreen::on_buttonBox_accepted()
         QMessageBox::critical(this, tr("Error"), tr("Password is wrong"));
         return;
     }
-
+    m_dbPtr->addLogMessage("system", "server is ready", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
+    m_dbPtr->addLogMessage("system", "admin logged in", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
     m_userId = userId;
     m_userName = ui->loginEdit->text();
     accept();
@@ -39,6 +43,7 @@ void StartScreen::on_buttonBox_accepted()
 
 void StartScreen::on_buttonBox_rejected()
 {
+    m_dbPtr->addLogMessage("system", "exit", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
     reject();
 }
 
