@@ -8,7 +8,7 @@
 class Database
 {
 	vector<User> _users;
-	vector<Message> _messages;
+    vector<Message> _messages;
     vector<Message> _logs;
 	unordered_map<string, int> _usersMapByName;
 
