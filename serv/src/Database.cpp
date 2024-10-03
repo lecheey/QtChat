@@ -63,6 +63,11 @@ void Database::addChatMessage(string sender, string text, std::string time)
     _messages.push_back(Message(sender, text, time));
 }
 
+void Database::addLogMessage(string sender, string text, std::string time)
+{
+    _logs.push_back(Message(sender, text, time));
+}
+
 bool Database::addPrivateMessage(string sender, string target, string message, std::string time)
 {
 	int targetUser = searchUserByName(target);
@@ -85,6 +90,19 @@ vector<string> Database::getChatMessages()
 		}
 	}
 	return strings;
+}
+
+vector<string> Database::getLogMessages()
+{
+    vector<string> strings;
+    for (auto &m: _logs)
+    {
+        if (m.getDest() == -1)
+        {
+            strings.push_back(m.getTime() + " <" + m.getSender() + ">: " + m.getText());
+        }
+    }
+    return strings;
 }
 
 vector<Message> Database::getPrivateMessage(int userID)

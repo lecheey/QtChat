@@ -45,7 +45,14 @@ void MsgListWidget::showPvtMsgList(){
 }
 
 void MsgListWidget::showLogList(){
-    ui->msgListBrowser->setText("Your logs will be displayed here");
+    auto logMessages = m_dbPtr->getLogMessages();
+    QString logs;
+    for(const auto &msg : logMessages){
+        logs.append(QString::fromStdString(msg) + "\n");
+    }
+    if(ui->msgListBrowser->toPlainText() != logs){
+        ui->msgListBrowser->setText(logs);
+    }
 }
 
 void MsgListWidget::showConfig(){
