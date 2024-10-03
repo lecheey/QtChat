@@ -13,7 +13,7 @@ private:
 	string _login;
 	string _username;
 	Hash _passwordHash;
-    userStatus _status;
+    userStatus _status{userStatus::offline};
 public:
 	User();
     User(string username, Hash passHash);

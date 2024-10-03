@@ -94,7 +94,6 @@ void MainWindow::on_configButton_clicked()
 
 void MainWindow::onGetInfo(QString username)
 {
-
     QMessageBox::information(this, tr("Status"),
                 QString::fromUtf8(m_dbPtr->getUserStat(username.toStdString())));
     return;

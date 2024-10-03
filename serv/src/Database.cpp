@@ -40,7 +40,7 @@ int Database::addUser(string username, string password)
 	if (!correctName(username)) return -1;
 	auto uit = _usersMapByName.find(username);
 	if (uit != _usersMapByName.end()) return -2;
-	User newUser = User(username, sha1(password));
+    User newUser = User(username, sha1(password));
 	_users.push_back(newUser);
   _usersMapByName.insert({ username, newUser.getUserID() });
 	return newUser.getUserID();
@@ -146,4 +146,5 @@ std::string Database::getUserStat(string username){
     if(stat == 0){ return "offline"; }
     else if(stat == 1){ return "online"; }
     else if(stat == 2){ return "banned"; }
+    else { return "no data"; }
 }
