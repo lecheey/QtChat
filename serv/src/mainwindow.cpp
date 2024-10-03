@@ -31,7 +31,7 @@ MainWindow::MainWindow(int userId,
     // users
     m_dbPtr->addUser("ivan", "ivan");
     m_dbPtr->addUser("jane", "jane");
-    //m_dbPtr->loginUser("ivan");
+    m_dbPtr->loginUser("ivan");
     //messages
     m_dbPtr->addChatMessage("ivan", "hello", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
     m_dbPtr->addChatMessage("jane", "hi", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
