@@ -1,11 +1,17 @@
 #include "User.h"
 int User::userCounter = 1;
 
-User::User() : _id(0), _login(""), _username(""), _passwordHash()
+User::User() :
+    _id(0), _login(""), _username(""), _passwordHash(), _status(userStatus::offline)
 {
 }
 
-User::User(string username, Hash passHash) :_login(username), _username(username), _passwordHash(passHash), _id(++userCounter)
+User::User(string username, Hash passHash) :
+    _login(username),
+    _username(username),
+    _passwordHash(passHash),
+    _id(++userCounter),
+    _status(userStatus::offline)
 {
 }
 

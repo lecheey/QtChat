@@ -33,10 +33,12 @@ void StartScreen::on_buttonBox_accepted()
         QMessageBox::critical(this, tr("Error"), tr("Password is wrong"));
         return;
     }
+    m_dbPtr->loginUser(ui->loginEdit->text().toStdString());
     m_dbPtr->addLogMessage("system", "server is ready", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
     m_dbPtr->addLogMessage("system", "admin logged in", QDateTime::currentDateTime().time().toString().toStdString()); // pvt
     m_userId = userId;
     m_userName = ui->loginEdit->text();
+
     accept();
 }
 
