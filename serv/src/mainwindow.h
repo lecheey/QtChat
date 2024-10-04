@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <memory>
 #include "Database.h"
+#include "config.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,7 +21,8 @@ public:
                         QWidget *parent = nullptr);
     ~MainWindow();
 
-    static MainWindow* createClient(std::shared_ptr<Database> m_dbPtr = nullptr);
+    static MainWindow* createClient(std::shared_ptr<Database> m_dbPtr = nullptr,
+                                    std::shared_ptr<myConfig> m_cfgPtr = nullptr);
     void getUsrList();
     void getPubMsgList();
     void getPvtMsgList();
@@ -41,6 +43,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     std::shared_ptr<Database> m_dbPtr;
+    std::shared_ptr<myConfig> m_cfgPtr;
     QString m_userName;
     int m_userId;
 
