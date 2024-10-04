@@ -26,6 +26,7 @@ public:
     QString userName() const;
 
     std::shared_ptr<Database> getDatabase() const;
+    std::shared_ptr<myConfig> getConfig() const;
 
 private slots:
     void on_buttonBox_accepted();

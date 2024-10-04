@@ -22,5 +22,10 @@ public:
 
     void readConfig(); // get user config or use default
     void writeConfig(); // save user config
+    int getPort();
     QString getAdmin();
+    QString getSqluser();
+    QString getSqlpass();
+    QString getSqldb();
+    QString getCfgInfo();
 };

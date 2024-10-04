@@ -11,6 +11,7 @@
 MainWindow::MainWindow(int userId,
                        QString userName,
                        std::shared_ptr<Database> dbPtr,
+                       std::shared_ptr<myConfig> cfgPtr,
                        QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -19,6 +20,11 @@ MainWindow::MainWindow(int userId,
 
     ui->setupUi(this);
 
+    if(cfgPtr)
+        m_cfgPtr = cfgPtr;
+    else
+        m_cfgPtr = make_shared<myConfig>();
+
     if(dbPtr)
         m_dbPtr = dbPtr;
     else
@@ -26,6 +32,7 @@ MainWindow::MainWindow(int userId,
 
     ui->userWidget->setDatabase(m_dbPtr);
     ui->msgWidget->setDatabase(m_dbPtr);
+    ui->msgWidget->setConfigDB(m_cfgPtr);
 
     // block for tests
     // users
@@ -57,7 +64,7 @@ MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr,
     if(result == QDialog::Rejected){
         return nullptr;
     }
-    auto w = new MainWindow(s.userId(), s.userName(), s.getDatabase());
+    auto w = new MainWindow(s.userId(), s.userName(), s.getDatabase(), s.getConfig());
     w->setAttribute(Qt::WA_DeleteOnClose);
     return w;
 }
