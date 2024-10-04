@@ -49,9 +49,10 @@ MainWindow::~MainWindow(){
     qApp->exit(0);
 }
 
-MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr)
+MainWindow *MainWindow::createClient(std::shared_ptr<Database> dbPtr,
+                                     std::shared_ptr<myConfig> cfgPtr)
 {
-    StartScreen s(dbPtr);
+    StartScreen s(dbPtr, cfgPtr);
     auto result = s.exec();
     if(result == QDialog::Rejected){
         return nullptr;

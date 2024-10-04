@@ -2,8 +2,11 @@
 #define STARTSCREEN_H
 
 #include <QDialog>
+#include <QMessageBox>
+#include <QDateTime>
 #include <memory>
 #include "Database.h"
+#include "config.h"
 
 namespace Ui {
 class StartScreen;
@@ -15,6 +18,7 @@ class StartScreen : public QDialog
 
 public:
     explicit StartScreen(std::shared_ptr<Database> dbPtr = nullptr,
+                         std::shared_ptr<myConfig> cfgPtr = nullptr,
                          QWidget *parent = nullptr);
     ~StartScreen();
 
@@ -32,6 +36,7 @@ private:
     int m_userId;
     QString m_userName;
     std::shared_ptr<Database> m_dbPtr;
+    std::shared_ptr<myConfig> m_cfgPtr;
 };
 
 #endif // STARTSCREEN_H
