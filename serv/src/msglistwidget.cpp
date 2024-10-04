@@ -17,6 +17,10 @@ void MsgListWidget::setDatabase(std::shared_ptr<Database> dbPtr){
     m_dbPtr = dbPtr;
 }
 
+void MsgListWidget::setConfigDB(std::shared_ptr<myConfig> cfgPtr){
+    m_cfgPtr = cfgPtr;
+}
+
 void MsgListWidget::showPubMsgList(){
     auto chatMessages = m_dbPtr->getChatMessages();
     QString pubchat;
@@ -56,5 +60,5 @@ void MsgListWidget::showLogList(){
 }
 
 void MsgListWidget::showConfig(){
-    ui->msgListBrowser->setText("Your configs will be displayed here");
+    ui->msgListBrowser->setText(m_cfgPtr->getCfgInfo());
 }

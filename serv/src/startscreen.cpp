@@ -69,6 +69,11 @@ std::shared_ptr<Database> StartScreen::getDatabase() const
     return m_dbPtr;
 }
 
+std::shared_ptr<myConfig> StartScreen::getConfig() const
+{
+    return m_cfgPtr;
+}
+
 QString StartScreen::userName() const
 {
     return m_userName;

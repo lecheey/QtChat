@@ -18,6 +18,7 @@ public:
     explicit MainWindow(int userId,
                         QString userName,
                         std::shared_ptr<Database> dbPtr = nullptr,
+                        std::shared_ptr<myConfig> cfgPtr = nullptr,
                         QWidget *parent = nullptr);
     ~MainWindow();
 

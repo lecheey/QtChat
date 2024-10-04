@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <memory>
 #include "Database.h"
+#include "config.h"
 
 namespace Ui {
 class MsgListWidget;
@@ -18,6 +19,7 @@ public:
     ~MsgListWidget();
 
     void setDatabase(std::shared_ptr<Database> dbPtr);
+    void setConfigDB(std::shared_ptr<myConfig> cfgPtr);
     void showPubMsgList();
     void showPvtMsgList();
     void showLogList();
@@ -25,6 +27,7 @@ public:
 private:
     Ui::MsgListWidget *ui;
     std::shared_ptr<Database> m_dbPtr;
+    std::shared_ptr<myConfig> m_cfgPtr;
 };
 
 #endif // MSGLISTWIDGET_H

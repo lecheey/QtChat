@@ -47,7 +47,35 @@ void myConfig::writeConfig()
     }
 }
 
+int myConfig::getPort()
+{
+    return PORT;
+}
+
 QString myConfig::getAdmin()
 {
     return admin;
+}
+
+QString myConfig::getSqluser()
+{
+    return sqluser;
+}
+
+QString myConfig::getSqlpass()
+{
+    return sqlpass;
+}
+
+QString myConfig::getSqldb()
+{
+    return sqldb;
+}
+
+QString myConfig::getCfgInfo()
+{
+    return "Admin: " + admin +
+            "\nPort: " + QString::number(PORT) +
+            "\nSQL user: " + sqluser +
+            "\nSQL database: " + sqldb;
 }
